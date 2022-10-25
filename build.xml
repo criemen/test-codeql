@@ -1,0 +1,8 @@
+
+<project name="app">
+	<target name="build">
+		<javac srcdir="src">
+			<include name="*.java"/>
+		</javac>
+	</target>
+</project>
