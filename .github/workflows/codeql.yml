@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - master
+env:
+  CODEQL_ACTION_TESTING_ENVIRONMENT: "qa-rc"
+
 jobs:
   analyze:
     name: Analyze
@@ -26,12 +29,12 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@main
       with:
         languages: ${{ matrix.language }}
 
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+      uses: github/codeql-action/autobuild@main
 
     - name: Analyze
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@main
